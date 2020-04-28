@@ -7,7 +7,8 @@ export async function handler (req: object) {
       "Access-Control-Allow-Origin": "*"
     },
     body: JSON.stringify({
-      message: 'Use /skim to start using Skimming Lambda API or /config to check details about this environment'
+      message: 'Use /skim to start using Skimming Lambda API or /config to check details about this environment',
+      req
     })
   }
 }

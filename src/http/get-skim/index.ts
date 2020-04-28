@@ -20,6 +20,8 @@ export async function handler (req: any) {
     const url = req.queryStringParameters.url || APP_CONTEXT_ENDPOINT;
     const queryFiles = req.queryStringParameters.files || '';
 
+    console.log(req.queryStringParameters.previewLength)
+
     const files = queryFiles ? queryFiles.split(",") : APP_FILES.split(",");
     const previewLength = req.queryStringParameters.previewLength || 200;
     const ignoreCase = getBool(req.queryStringParameters.ignoreCase, true);
