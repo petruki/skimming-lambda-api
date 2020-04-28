@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/petruki/skimming.svg?branch=master)](https://travis-ci.com/github/petruki/skimming)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# `Skimming API `
+# `Skimming Lambda API `
 
 Skimming Lambda API is a Lambda API that uses [Skimming](https://github.com/petruki/skimming) module to deliver a simple and efficient search engine.
 
