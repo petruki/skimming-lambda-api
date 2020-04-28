@@ -1,6 +1,10 @@
 import Skimming from "https://raw.githubusercontent.com/petruki/skimming/v1.0.1/mod.ts";
-import { Output } from "https://raw.githubusercontent.com/petruki/skimming/v1.0.1/src/lib/types.ts";
-import { APP_CACHE_EXP_DURATION, APP_CACHE_SIZE } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.0/src/config.ts";
+import getBool from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.0/src/helpers/index.ts";
+import { 
+  APP_CACHE_EXP_DURATION, 
+  APP_CACHE_SIZE, 
+  APP_CONTEXT_ENDPOINT, 
+  APP_FILES } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.0/src/config.ts";
 
 const headers =  {
   'content-type': 'application/json; charset=utf8',
@@ -12,29 +16,48 @@ const skimmer = new Skimming({ expireDuration: APP_CACHE_EXP_DURATION, size: APP
 
 export async function handler (req: any) {
   try {
-    
-    // const query = req.searchParams.get('query');
-    // const url = req.searchParams.get('url') || APP_CONTEXT_ENDPOINT;
-    // const queryFiles = req.searchParams.get('files') || '';
+    const query = req.queryStringParameters.query;
+    const url = req.queryStringParameters.url || APP_CONTEXT_ENDPOINT;
+    const queryFiles = req.queryStringParameters.files || '';
 
-    // const skimContext = {
-    //   url,
-    //   files,
-    // };
+    if (!query) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ message: 'Invalid query - please, add ?query= to your request' })
+      }
+    }
+
+    const files = queryFiles ? queryFiles.split(",") : APP_FILES.split(",");
+    const previewLength: any = req.queryStringParameters.previewLength || 200;
+    const ignoreCase = getBool(req.queryStringParameters.ignoreCase, true);
+    const trimContent = getBool(req.queryStringParameters.trimContent, true);
+    const regex = getBool(req.queryStringParameters.regex, false);
+    const skipCache = getBool(req.queryStringParameters.skipCache, false);
+
+    const skimContext = {
+      url,
+      files,
+    };
   
-    // skimmer.useCache = !skipCache;
-    // skimmer.setContext(skimContext);
-    // const results = await skimmer.skim(query, {
-    //   previewLength,
-    //   ignoreCase,
-    //   trimContent,
-    //   regex
-    // });
+    skimmer.useCache = !skipCache;
+    skimmer.setContext(skimContext);
+    const results = await skimmer.skim(query, {
+      previewLength,
+      ignoreCase,
+      trimContent,
+      regex
+    });
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({req})
+      body: JSON.stringify(
+        {
+          message: 'Success',
+          query: query,
+          result: results
+        })
     }
   } catch (e) {
     return {
