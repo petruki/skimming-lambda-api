@@ -1,7 +1,7 @@
 {
-  "name": "begin-app",
-  "version": "0.0.0",
-  "description": "Begin basic Hello World! app for Deno",
+  "name": "skimming-lambda-api",
+  "version": "1.0.0",
+  "description": "Skimming API is a Lambda API that uses Skimming module for Deno",
   "scripts": {
     "start": "cross-env NODE_ENV=testing sandbox"
   },
