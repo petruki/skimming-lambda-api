@@ -42,7 +42,6 @@ export async function handler (req: any) {
     });
 
     return {
-      cors: true,
       statusCode: 200,
       headers,
       body: JSON.stringify(
@@ -54,7 +53,6 @@ export async function handler (req: any) {
     }
   } catch (e) {
     return {
-      cors: true,
       statusCode: 500,
       headers,
       body: JSON.stringify({ message: `Something went wrong - ${e.message}` })
