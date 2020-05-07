@@ -1,4 +1,4 @@
-import { APP_CONTEXT_ENDPOINT, APP_FILES, APP_CACHE_EXP_DURATION, APP_CACHE_SIZE } from "https://raw.githubusercontent.com/petruki/skimming-api/master/src/config.ts";
+import { APP_CONTEXT_ENDPOINT, APP_FILES, APP_CACHE_EXP_DURATION, APP_CACHE_SIZE } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.2/src/config.ts";
 
 export async function handler (req: object) {
   return {
