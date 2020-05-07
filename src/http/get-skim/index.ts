@@ -1,4 +1,4 @@
-import Skimming from "https://raw.githubusercontent.com/petruki/skimming/v1.0.3/mod.ts";
+import Skimming from "https://raw.githubusercontent.com/petruki/skimming/v1.0.4/mod.ts";
 import getBool from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.0/src/helpers/index.ts";
 import { 
   APP_CACHE_EXP_DURATION, 
