@@ -9,8 +9,7 @@ export async function handler (req: object) {
       "Access-Control-Allow-Origin": "*"
     },
     body: JSON.stringify({
-      message: 'Success',
-      deno: Deno.env()
+      message: 'Success'
     })
     // body: JSON.stringify({
     //   message: 'Success',
