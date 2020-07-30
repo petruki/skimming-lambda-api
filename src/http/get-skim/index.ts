@@ -1,10 +1,10 @@
-import Skimming from "https://raw.githubusercontent.com/petruki/skimming/v1.0.5/mod.ts";
-import getBool from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.2/src/helpers/index.ts";
+import Skimming from "https://deno.land/x/skimming/mod.ts";
+import getBool from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.3/src/helpers/index.ts";
 import { 
   APP_CACHE_EXP_DURATION, 
   APP_CACHE_SIZE, 
   APP_CONTEXT_ENDPOINT, 
-  APP_FILES } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.2/src/config.ts";
+  APP_FILES } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.3/src/config.ts";
 
 const headers =  {
   'content-type': 'application/json; charset=utf8',
