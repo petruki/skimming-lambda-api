@@ -1,26 +1,25 @@
 import Skimming from "https://deno.land/x/skimming/mod.ts";
-import getBool from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.3/src/helpers/index.ts";
-import { 
-  APP_CACHE_EXP_DURATION, 
-  APP_CACHE_SIZE, 
-  APP_CONTEXT_ENDPOINT, 
-  APP_FILES } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.3/src/config.ts";
 
 const headers =  {
   'content-type': 'application/json; charset=utf8',
   'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
   "Access-Control-Allow-Origin": "*"
-}
+};
 
-const skimmer = new Skimming({ expireDuration: APP_CACHE_EXP_DURATION, size: APP_CACHE_SIZE });
+const skimmer = new Skimming(
+  { 
+    expireDuration: process.env.APP_CACHE_EXP_DURATION, 
+    size:process.env. APP_CACHE_SIZE 
+  }
+);
 
 export async function handler (req: any) {
   try {
     const query = req.queryStringParameters.query;
-    const url = req.queryStringParameters.url || APP_CONTEXT_ENDPOINT;
+    const url = req.queryStringParameters.url || process.env.APP_CONTEXT_ENDPOINT;
     const queryFiles = req.queryStringParameters.files || '';
 
-    const files = queryFiles ? queryFiles.split(",") : APP_FILES.split(",");
+    const files = queryFiles ? queryFiles.split(",") : process.env.APP_FILES.split(",");
     const previewLength = parseInt(req.queryStringParameters.previewLength || 200);
     const ignoreCase = getBool(req.queryStringParameters.ignoreCase, true);
     const trimContent = getBool(req.queryStringParameters.trimContent, true);
@@ -58,4 +57,17 @@ export async function handler (req: any) {
       body: JSON.stringify({ message: `Something went wrong - ${e.message}` })
     }
   }
+}
+
+function getBool(value: any, _default: boolean): boolean {
+
+  if (value === null || value === "") {
+    return _default;
+  }
+
+  if (value === "true") {
+    return true;
+  }
+
+  return false;
 }

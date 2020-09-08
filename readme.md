@@ -5,8 +5,6 @@
 
 Skimming Lambda API is a Lambda API that uses [Skimming](https://github.com/petruki/skimming) module made for Deno to deliver a simple and efficient search engine.
 
-**Please, refer to the core API source available at [Skimming API](https://github.com/petruki/skimming-api) - this project is a project 100% Deno and my goal is to promote as much as I can regarding this new awesome runtime.**
-
 ## Usage
 
 ### Lockup API info
@@ -68,6 +66,3 @@ Request (GET)
 ```
  - url: Endpoint to be fetched
  - files: artifacts to be fetched
-
-## Contributing
-Please do open an issue or PR at [Skimming API](https://github.com/petruki/skimming-api) repository if you feel you have something cool to add.

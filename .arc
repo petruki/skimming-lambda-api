@@ -1,6 +1,9 @@
 @app
 skimming-lambda-api
 
+@aws
+runtime deno
+
 @http
 get /
 get /config

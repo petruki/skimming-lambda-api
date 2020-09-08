@@ -1,5 +1,3 @@
-import { APP_CONTEXT_ENDPOINT, APP_FILES, APP_CACHE_EXP_DURATION, APP_CACHE_SIZE } from "https://raw.githubusercontent.com/petruki/skimming-api/v1.0.2/src/config.ts";
-
 export async function handler (req: object) {
   return {
     statusCode: 200,
@@ -10,10 +8,10 @@ export async function handler (req: object) {
     },
     body: JSON.stringify({
       message: 'Success',
-      url: APP_CONTEXT_ENDPOINT,
-      files: APP_FILES.split(","),
-      cacheDuration: `${APP_CACHE_EXP_DURATION}s`,
-      cacheSize: APP_CACHE_SIZE
+      url: process.env.APP_CONTEXT_ENDPOINT,
+      files: process.env.APP_FILES.split(","),
+      cacheDuration: `${process.env.APP_CACHE_EXP_DURATION}s`,
+      cacheSize: process.env.APP_CACHE_SIZE
     })
   }
 }
