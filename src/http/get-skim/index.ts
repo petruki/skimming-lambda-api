@@ -8,18 +8,18 @@ const headers =  {
 
 const skimmer = new Skimming(
   { 
-    expireDuration: process.env.APP_CACHE_EXP_DURATION, 
-    size:process.env. APP_CACHE_SIZE 
+    expireDuration: Deno.env.APP_CACHE_EXP_DURATION, 
+    size: Deno.env. APP_CACHE_SIZE 
   }
 );
 
 export async function handler (req: any) {
   try {
     const query = req.queryStringParameters.query;
-    const url = req.queryStringParameters.url || process.env.APP_CONTEXT_ENDPOINT;
+    const url = req.queryStringParameters.url || Deno.env.APP_CONTEXT_ENDPOINT;
     const queryFiles = req.queryStringParameters.files || '';
 
-    const files = queryFiles ? queryFiles.split(",") : process.env.APP_FILES.split(",");
+    const files = queryFiles ? queryFiles.split(",") : Deno.env.APP_FILES.split(",");
     const previewLength = parseInt(req.queryStringParameters.previewLength || 200);
     const ignoreCase = getBool(req.queryStringParameters.ignoreCase, true);
     const trimContent = getBool(req.queryStringParameters.trimContent, true);
