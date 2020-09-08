@@ -8,10 +8,10 @@ export async function handler (req: object) {
     },
     body: JSON.stringify({
       message: 'Success',
-      url: Deno.env.get('APP_CONTEXT_ENDPOINT'),
-      files: Deno.env.get('APP_FILES').split(","),
-      cacheDuration: `${Deno.env.get('APP_CACHE_EXP_DURATION')}s`,
-      cacheSize: Deno.env.get('APP_CACHE_SIZE')
+      url: Deno.env.toObject().APP_CONTEXT_ENDPOINT,
+      files: Deno.env.toObject().APP_FILES.split(","),
+      cacheDuration: `${Deno.env.toObject().APP_CACHE_EXP_DURATION}s`,
+      cacheSize: Deno.env.toObject().APP_CACHE_SIZE
     })
   }
 }
