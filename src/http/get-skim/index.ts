@@ -1,4 +1,4 @@
-import Skimming from "https://deno.land/x/skimming/mod.ts";
+import { Skimming } from "https://deno.land/x/skimming/mod.ts";
 
 const headers =  {
   'content-type': 'application/json; charset=utf8',
