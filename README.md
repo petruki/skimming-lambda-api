@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.com/petruki/skimming.svg?branch=master)](https://travis-ci.com/github/petruki/skimming)
+[![Master CI](https://github.com/petruki/skimming/actions/workflows/master.yml/badge.svg)](https://github.com/petruki/skimming/actions/workflows/master.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=petruki_skimming&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=petruki_skimming)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # `Skimming Lambda API `

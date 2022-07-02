@@ -1,4 +1,5 @@
-export async function handler (req: object) {
+// deno-lint-ignore require-await
+export async function handler() {
   return {
     statusCode: 200,
     headers: {

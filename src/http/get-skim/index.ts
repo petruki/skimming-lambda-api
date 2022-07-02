@@ -1,4 +1,4 @@
-import { Skimming } from "https://deno.land/x/skimming/mod.ts";
+import { Skimming } from "https://deno.land/x/skimming@v1.0.8/mod.ts";
 
 const headers =  {
   'content-type': 'application/json; charset=utf8',
@@ -13,6 +13,7 @@ const skimmer = new Skimming(
   }
 );
 
+// deno-lint-ignore no-explicit-any
 export async function handler (req: any) {
   try {
     const query = req.queryStringParameters.query;
@@ -59,7 +60,7 @@ export async function handler (req: any) {
   }
 }
 
-function getBool(value: any, _default: boolean): boolean {
+function getBool(value: string | null, _default: boolean): boolean {
 
   if (value === null || value === "") {
     return _default;

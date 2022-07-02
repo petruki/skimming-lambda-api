@@ -1,4 +1,5 @@
-export async function handler (req: object) {
+// deno-lint-ignore require-await
+export async function handler() {
   return {
     statusCode: 200,
     headers: {
@@ -8,6 +9,7 @@ export async function handler (req: object) {
     },
     body: JSON.stringify({
       message: 'Success',
+      deno: Deno.version.deno,
       url: Deno.env.toObject().APP_CONTEXT_ENDPOINT,
       files: Deno.env.toObject().APP_FILES.split(","),
       cacheDuration: `${Deno.env.toObject().APP_CACHE_EXP_DURATION}s`,
